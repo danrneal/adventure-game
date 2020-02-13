@@ -6,9 +6,9 @@
 import random
 import time
 
-items = []
-enemies = ["troll", "wicked fairie", "gorgon", "dragon", "pirate"]
-enemy = random.choice(enemies)
+ITEMS = []
+ENEMIES = ["troll", "wicked fairie", "gorgon", "dragon", "pirate"]
+ENEMY = random.choice(ENEMIES)
 
 
 def main():
@@ -26,7 +26,7 @@ def intro():
         "yellow wildflowers"
     )
     print_pause(
-        f"Rumor has it that a {enemy} is somewhere around here, and has been "
+        f"Rumor has it that a {ENEMY} is somewhere around here, and has been "
         "terrifying the nearby village."
     )
     print_pause("In front of you is a house.")
@@ -62,7 +62,7 @@ def cave():
 
     print_pause("You peer cautiously into the cave.")
 
-    if 'sword' in items:
+    if 'sword' in ITEMS:
         print_pause(
             "You've been here before, and gotten all the good stuff. It's "
             "just an empty cave now."
@@ -74,7 +74,7 @@ def cave():
         print_pause(
             "You discard your silly old dagger and take the sword with you."
         )
-        items.append("sword")
+        ITEMS.append("sword")
 
     print_pause("You walk back out to the field.")
     field()
@@ -89,11 +89,11 @@ def house():
 
     print_pause("You approach the door of the house.")
     print_pause(
-        f"You are about to knock when the door opens and out steps a {enemy}."
+        f"You are about to knock when the door opens and out steps a {ENEMY}."
     )
-    print_pause(f"Eep! This is the {enemy}'s house!")
-    print_pause(f"The {enemy} attacks you!")
-    if "sword" not in items:
+    print_pause(f"Eep! This is the {ENEMY}'s house!")
+    print_pause(f"The {ENEMY} attacks you!")
+    if "sword" not in ITEMS:
         print_pause(
             "You feel a bit under-prepared for this, what with only having a "
             "tiny dagger."
@@ -119,20 +119,20 @@ def fight():
     in inventory
     """
 
-    if "sword" in items:
+    if "sword" in ITEMS:
         print_pause(
-            f"As the {enemy} moves to attack, you unsheath your new sword."
+            f"As the {ENEMY} moves to attack, you unsheath your new sword."
         )
         print_pause(
             "The Sword of Ogoroth shines brightly in your hand as you brace "
             "yourself for the attack."
         )
         print_pause(
-            f"But the {enemy} takes one look at your shiny new toy and runs "
+            f"But the {ENEMY} takes one look at your shiny new toy and runs "
             "away!"
         )
         print_pause(
-            f"You have rid the town of the {enemy}. You are victorious!"
+            f"You have rid the town of the {ENEMY}. You are victorious!"
         )
     else:
         print_pause("You do your best...")
@@ -151,9 +151,9 @@ def play_again():
     choice = valid_input("Would you like to play again? (y/n) ", ['y', 'n'])
     if choice == 'y':
         print_pause("Excellent! Restarting game...")
-        global items, enemy
-        items = []
-        enemy = random.choice(enemies)
+        global ITEMS, ENEMY
+        ITEMS = []
+        ENEMY = random.choice(ENEMIES)
         main()
     elif choice == 'n':
         print_pause("Thanks for playing! See you next time.")
