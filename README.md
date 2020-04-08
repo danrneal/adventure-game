@@ -3,9 +3,11 @@
 A simple version of an old-fashioned text-based adventure game.
 
 ## Usage
-```
+
+```bash
 usage: adventure_game.py
 ```
+
 That's it!
 
 ## Credit
