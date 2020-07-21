@@ -51,10 +51,10 @@ def field():
     print_pause("Enter 1 to knock on the door of the house.")
     print_pause("Enter 2 to peer into the cave.")
     print_pause("What would you like to do?")
-    choice = valid_input("(Please enter 1 or 2.)\n", ['1', '2'])
-    if choice == '1':
+    choice = valid_input("(Please enter 1 or 2.)\n", ["1", "2"])
+    if choice == "1":
         house()
-    elif choice == '2':
+    elif choice == "2":
         cave()
 
 
@@ -65,7 +65,7 @@ def cave():
     """
     print_pause("You peer cautiously into the cave.")
 
-    if 'sword' in ITEMS:
+    if "sword" in ITEMS:
         print_pause(
             "You've been here before, and gotten all the good stuff. It's "
             "just an empty cave now."
@@ -101,12 +101,11 @@ def house():
             "tiny dagger."
         )
     choice = valid_input(
-        "Would you like to (1) fight or (2) run away? ",
-        ['1', '2']
+        "Would you like to (1) fight or (2) run away? ", ["1", "2"]
     )
-    if choice == '1':
+    if choice == "1":
         fight()
-    elif choice == '2':
+    elif choice == "2":
         print_pause(
             "You run back into the field. Luckily, you don't seem to have "
             "been followed"
@@ -185,5 +184,5 @@ def print_pause(message):
     time.sleep(2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
