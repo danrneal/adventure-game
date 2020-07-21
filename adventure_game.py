@@ -14,7 +14,7 @@ import random
 import time
 
 ITEMS = []
-ENEMIES = ["troll", "wicked fairie", "gorgon", "dragon", "pirate"]
+ENEMIES = ["troll", "wicked fairy", "gorgon", "dragon", "pirate"]
 ENEMY = random.choice(ENEMIES)
 
 
@@ -122,7 +122,7 @@ def fight():
     """
     if "sword" in ITEMS:
         print_pause(
-            f"As the {ENEMY} moves to attack, you unsheath your new sword."
+            f"As the {ENEMY} moves to attack, you unsheathe your new sword."
         )
         print_pause(
             "The Sword of Ogoroth shines brightly in your hand as you brace "
