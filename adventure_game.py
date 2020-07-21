@@ -1,6 +1,13 @@
-"""A simple version of an old-fashioned text-based adventure game
+"""A simple version of an old-fashioned text-based adventure game.
 
-    Usage: adventure_game.py
+Usage: adventure_game.py
+
+Attributes:
+    ITEMS: A list of strs representing the items that the character has
+        acquired (starts empty)
+    ENEMIES: A list of str representing possible enemies that could be in the
+        game
+    ENEMY: A str representing a random selection from the ENEMIES list
 """
 
 import random
@@ -12,15 +19,13 @@ ENEMY = random.choice(ENEMIES)
 
 
 def main():
-    """Main function call, runs the adventure game"""
-
+    """Main function call, runs the adventure game."""
     intro()
     field()
 
 
 def intro():
-    """Prints the intro to the adventure"""
-
+    """Prints the intro to the adventure."""
     print_pause(
         "You find yourself standing in an open field, filled with grass and "
         "yellow wildflowers"
@@ -37,12 +42,11 @@ def intro():
 
 
 def field():
-    """Sets the scene in a field and gives them a choice where to go next
+    """Sets the scene in a field and gives them a choice where to go next.
 
     1 - Go to the house
     2 - Go to the cave
     """
-
     print_pause("")
     print_pause("Enter 1 to knock on the door of the house.")
     print_pause("Enter 2 to peer into the cave.")
@@ -55,11 +59,10 @@ def field():
 
 
 def cave():
-    """Sets up the cave scene
+    """Sets up the cave scene.
 
     The user adds a sword into their inventory unless they already have it
     """
-
     print_pause("You peer cautiously into the cave.")
 
     if 'sword' in ITEMS:
@@ -81,12 +84,11 @@ def cave():
 
 
 def house():
-    """Sets up the house scene and gives them a choice to run or fight
+    """Sets up the house scene and gives them a choice to run or fight.
 
     1 - Fight their enemy
     2 - Run from their enemy
     """
-
     print_pause("You approach the door of the house.")
     print_pause(
         f"You are about to knock when the door opens and out steps a {ENEMY}."
@@ -113,12 +115,11 @@ def house():
 
 
 def fight():
-    """Shows the result of the fight and the endgame
+    """Shows the result of the fight and the endgame.
 
-    If the player wins or loses the game based on whether they have the sword
-    in inventory
+    The player wins or loses the game based on whether they have the sword in
+    inventory
     """
-
     if "sword" in ITEMS:
         print_pause(
             f"As the {ENEMY} moves to attack, you unsheath your new sword."
@@ -136,31 +137,30 @@ def fight():
         )
     else:
         print_pause("You do your best...")
-        print_pause("but your dagger is no match for the dragon.")
+        print_pause("but your dagger is no match for the {ENEMY}.")
         print_pause("You have been defeated!")
 
     play_again()
 
 
 def play_again():
-    """Asks the player if they want to play again
+    """Asks the player if they want to play again.
 
     Resets all global variables to set up for a new game
     """
-
-    choice = valid_input("Would you like to play again? (y/n) ", ['y', 'n'])
-    if choice == 'y':
+    choice = valid_input("Would you like to play again? (y/n) ", ["y", "n"])
+    if choice == "y":
         print_pause("Excellent! Restarting game...")
-        global ITEMS, ENEMY
+        global ITEMS, ENEMY  # pylint: disable=global-statement
         ITEMS = []
         ENEMY = random.choice(ENEMIES)
         main()
-    elif choice == 'n':
+    elif choice == "n":
         print_pause("Thanks for playing! See you next time.")
 
 
 def valid_input(prompt, options):
-    """Validates user input, repeats the prompt on invalid valid_input
+    """Validates user input, repeats the prompt on invalid valid_input.
 
     Args:
         prompt: A str representing the prompt a player sees
@@ -176,7 +176,7 @@ def valid_input(prompt, options):
 
 
 def print_pause(message):
-    """Prints a message with a 2 second delay
+    """Prints a message with a 2 second delay.
 
     Args:
         message: A str representing the message to be displayed
